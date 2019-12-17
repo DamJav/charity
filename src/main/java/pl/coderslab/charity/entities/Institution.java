@@ -9,7 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "intitutions")
+@Table(name = "institutions")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
