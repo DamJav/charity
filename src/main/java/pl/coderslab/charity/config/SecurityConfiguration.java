@@ -30,9 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT username, password, active FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT u.username, r.name FROM users u JOIN users_roles ur ON u.id" +
-                        "= ur.user_id JOIN roles r ON ur.roles_id = r.id WHERE u.username = ?");
+                .usersByUsernameQuery("SELECT email, password, active FROM users WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT u.email, r.name FROM users u JOIN users_roles ur ON u.id" +
+                        "= ur.user_id JOIN roles r ON ur.roles_id = r.id WHERE u.email = ?");
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("username")
+                .usernameParameter("email")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/")
                 .and()

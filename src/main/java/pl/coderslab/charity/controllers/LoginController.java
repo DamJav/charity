@@ -12,7 +12,7 @@ public class LoginController {
 
     @GetMapping
     public String prepareLoginPage(){
-        return "redirect:/login";
+        return "/login";
     }
 }
 
