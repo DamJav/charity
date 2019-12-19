@@ -17,12 +17,9 @@ import java.util.Set;
 @Data
 public class RegistrationDataDTO {
 
-    private String name;
-    private String surname;
+
     @NotBlank @Email
     private String email;
     private String password;
     private String rePassword;
-    @NotNull @AssertTrue
-    private Boolean termsAcceptance;
 }
