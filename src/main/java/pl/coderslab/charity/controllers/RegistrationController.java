@@ -37,6 +37,6 @@ public class RegistrationController {
             return "register";
         }
         registrationService.register(registrationData);
-        return "redirect:/login";
+        return "redirect:/";
     }
 }
