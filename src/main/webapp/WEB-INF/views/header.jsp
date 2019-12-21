@@ -16,7 +16,12 @@
                 <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-                <li><a href="/" class="btn btn--small btn--without-border">Wyloguj</a></li>
+           <li>
+                <form method="post" action="/logout">
+                    <button class="btn btn--small btn--without-border" type="submit">Wyloguj</button>
+                    <sec:csrfInput/>
+                </form>
+               </li>
             </sec:authorize>
         </ul>
 
