@@ -31,16 +31,15 @@ public class DonationController {
 
     @GetMapping("/form")
     public String prepareDonation(Model model){
+        model.addAttribute("donationData", new DonationDataDTO());
         model.addAttribute("institutions", institutionRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
         return "form";
     }
 
     @PostMapping("/form")
-    public String processDonation(DonationDataDTO donationData, HttpServletRequest req){
-        String bags = req.getParameter("bags");
-        Long bagsLong = Long.parseLong(bags);
-        donationData.setQuantity(bagsLong);
+    public String processDonation(@ModelAttribute("donationData") DonationDataDTO donationData){
+        donationService.createDonation(donationData);
         return "form-confirmation";
     }
 }
