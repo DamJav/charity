@@ -15,6 +15,12 @@
                 <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
                 <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </sec:authorize>
+            <sec:authorize access="hasRole('ADMIN')">
+                <li><a href="/" class="btn btn--small btn--without-border">Administratorzy</a></li>
+                <li><a href="/" class="btn btn--small btn--without-border">Użytkownicy</a></li>
+                <li><a href="/login" class="btn btn--small btn--without-border">Instytucje</a></li>
+
+            </sec:authorize>
             <sec:authorize access="isAuthenticated()">
            <li>
                 <form method="post" action="/logout">
@@ -26,7 +32,6 @@
         </ul>
 
         <ul>
-
             <li><a href="/" class="btn btn--without-border active">Start</a></li>
             <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
