@@ -12,6 +12,8 @@ import pl.coderslab.charity.repositories.CategoryRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.services.DonationService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/donation")
 public class DonationController {
@@ -29,15 +31,16 @@ public class DonationController {
 
     @GetMapping("/form")
     public String prepareDonation(Model model){
-        model.addAttribute("donationData", new DonationDataDTO());
         model.addAttribute("institutions", institutionRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
         return "form";
     }
 
     @PostMapping("/form")
-    public String processDonation(@ModelAttribute("donationData") DonationDataDTO donationData){
-        donationService.createDonation(donationData);
+    public String processDonation(DonationDataDTO donationData, HttpServletRequest req){
+        String bags = req.getParameter("bags");
+        Long bagsLong = Long.parseLong(bags);
+        donationData.setQuantity(bagsLong);
         return "form-confirmation";
     }
 }
