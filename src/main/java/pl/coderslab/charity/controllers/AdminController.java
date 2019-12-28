@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.dtos.RegistrationDataDTO;
 import pl.coderslab.charity.entities.User;
 import pl.coderslab.charity.repositories.UserRepository;
+import pl.coderslab.charity.services.RegistrationService;
 import pl.coderslab.charity.services.UpdateUserService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
@@ -18,10 +22,12 @@ public class AdminController {
 
     private final UserRepository userRepository;
     private final UpdateUserService updateUserService;
+    private final RegistrationService registrationService;
 
-    public AdminController(UserRepository userRepository, UpdateUserService updateUserService) {
+    public AdminController(UserRepository userRepository, UpdateUserService updateUserService, RegistrationService registrationService) {
         this.userRepository = userRepository;
         this.updateUserService = updateUserService;
+        this.registrationService = registrationService;
     }
 
     @GetMapping("/administrators")
@@ -49,6 +55,22 @@ public class AdminController {
             return "/admin/update-admin";
         }
         updateUserService.updateAdmin(user);
+        return "redirect:/admin/administrators";
+    }
+
+    @GetMapping("/create")
+    public String getRegistrationPage(Model model) {
+        model.addAttribute("registrationData", new RegistrationDataDTO());
+        return "/admin/admin-register";
+    }
+
+    @PostMapping("/create")
+    public String processRegistrationPage(@ModelAttribute("registrationData") @Valid RegistrationDataDTO registrationData,
+                                          BindingResult results) {
+        if (results.hasErrors()) {
+            return "/admin/admin-register";
+        }
+        registrationService.register(registrationData);
         return "redirect:/admin/administrators";
     }
 }
