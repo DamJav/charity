@@ -20,7 +20,7 @@
 <body>
 <jsp:include page="../header.jsp"/>
 <section class="login-page">
-    <h2>Załóż konto</h2>
+    <h2>Stwórz administratora</h2>
     <form:form method="post" modelAttribute="registrationData">
         <div class="form-group">
             <form:input path="email" name="email" placeholder="Email"/>
@@ -33,8 +33,7 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="/login" class="btn btn--without-border">Zaloguj się</a>
-            <button class="btn" type="submit">Załóż konto</button>
+            <button class="btn" type="submit">Stwórz</button>
         </div>
     </form:form>
 </section>

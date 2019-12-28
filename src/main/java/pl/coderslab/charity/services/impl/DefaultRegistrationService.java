@@ -35,4 +35,16 @@ public class DefaultRegistrationService implements RegistrationService {
         user.getRoles().add(roleUser);
         userRepository.save(user);
     }
+
+    @Override
+    public void registerAdmin(RegistrationDataDTO registrationData) {
+        ModelMapper mapper = new ModelMapper();
+        User user = mapper.map(registrationData, User.class);
+        user.setActive(Boolean.TRUE);
+        String encodedPassword = passwordEncoder.encode(registrationData.getPassword());
+        user.setPassword(encodedPassword);
+        Role roleUser = roleRepository.getByName("ROLE_ADMIN");
+        user.getRoles().add(roleUser);
+        userRepository.save(user);
+    }
 }
