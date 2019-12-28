@@ -38,7 +38,7 @@
                     <c:param name="id" value="${admin.id}"/>
                 </c:url>
             <td> <a href="${deleteURL}">Usuń</a></td>
-            <c:url value="/admin/delete" var="deleteURL">
+            <c:url value="/admin/update" var="updateURL">
                 <c:param name="id" value="${admin.id}"/>
             </c:url>
             <td> <a href="${deleteURL}">Edytuj</a></td>
