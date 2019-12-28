@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="<c:url value="../resources/css/style.css"/>" />
 </head>
 <body>
-<jsp:include page="admin-header.jsp"/>
+<jsp:include page="../header.jsp"/>
+Zarzadznei admin
 
 </body>
 </html>

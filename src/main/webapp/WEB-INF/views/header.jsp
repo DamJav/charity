@@ -16,7 +16,7 @@
                 <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </sec:authorize>
             <sec:authorize access="hasRole('ADMIN')">
-                <li><a href="/" class="btn btn--small btn--without-border">Administratorzy</a></li>
+                <li><a href="/admin/administrators" class="btn btn--small btn--without-border">Administratorzy</a></li>
                 <li><a href="/" class="btn btn--small btn--without-border">Użytkownicy</a></li>
                 <li><a href="/login" class="btn btn--small btn--without-border">Instytucje</a></li>
 
