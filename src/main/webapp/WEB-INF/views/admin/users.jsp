@@ -27,18 +27,30 @@
             <tr>
                 <td> Id:  <br/>
                 <td> Email: </td>
+                <td> Aktywny:</td>
                 <td> Akcje:</td>
+
             </tr>
-            <for:forEach items="${admins}" var="admin">
+            <for:forEach items="${users}" var="user">
                 <tr>
-                    <td>${admin.id}</td>
-                    <td><b>${admin.email}</b></td>
-                    <c:url value="/admin/delete" var="deleteURL">
-                        <c:param name="id" value="${admin.id}"/>
-                    </c:url>
+                    <td>${user.id}</td>
+                    <td>${user.email}</td>
+                    <td> ${user.active} <br/>
+                        <c:url value="/admin/deleteUser" var="deleteURL">
+                            <c:param name="id" value="${user.id}"/>
+                        </c:url>
                     <td> <a href="${deleteURL}">Usuń</a></td>
-                    <c:url value="/admin/update" var="updateURL">
-                        <c:param name="id" value="${admin.id}"/>
+                    <c:url value="/admin/manage/lock" var="lockURL">
+                        <c:param name="id" value="${user.id}"/>
+                    </c:url>
+                    <td> <a href="${lockURL}">Zablokuj</a></td>
+
+                    <c:url value="/admin/manage/unlock" var="unlockURL">
+                        <c:param name="id" value="${user.id}"/>
+                    </c:url>
+                    <td> <a href="${unlockURL}">Odblokuj</a></td>
+                    <c:url value="/admin/manage/update" var="updateURL">
+                        <c:param name="id" value="${user.id}"/>
                     </c:url>
                     <td> <a href="${updateURL}">Edytuj</a></td>
                 </tr>

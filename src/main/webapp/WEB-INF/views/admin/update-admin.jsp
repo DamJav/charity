@@ -20,7 +20,7 @@
 <body>
 <jsp:include page="../header.jsp"/>
 <section class="login-page">
-    <h2>Załóż konto</h2>
+    <h2>Edytuj dane</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
             <form:input path="email" name="email" placeholder="Nowy email"/>
