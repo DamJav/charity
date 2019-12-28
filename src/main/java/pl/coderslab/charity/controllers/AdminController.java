@@ -22,4 +22,10 @@ public class AdminController {
         model.addAttribute("admins", userRepository.findAllAdmins());
         return "/admin/administrators";
     }
+
+    @GetMapping("/delete")
+    public String deleteAdmin(Long id) {
+        userRepository.deleteById(id);
+        return "redirect:/admin/administrators";
+    }
 }
