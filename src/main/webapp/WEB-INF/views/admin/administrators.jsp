@@ -19,7 +19,9 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-Zarzadznei admin
+ <c:forEach items="${admins}" var="admin">
+     <h1>  ${admin.email} <br/> </h1>
+ </c:forEach>
 
 </body>
 </html>
