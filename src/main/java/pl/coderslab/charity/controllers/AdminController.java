@@ -65,12 +65,10 @@ public class AdminController {
     }
 
     @PostMapping("/create")
-    public String processRegistrationPage(@ModelAttribute("registrationData") @Valid RegistrationDataDTO registrationData,
-                                          BindingResult results) {
-        if (results.hasErrors()) {
-            return "/admin/admin-register";
-        }
-        registrationService.register(registrationData);
+    public String processRegistrationPage(@ModelAttribute("registrationData")RegistrationDataDTO registrationData) {
+        registrationService.registerAdmin(registrationData);
         return "redirect:/admin/administrators";
     }
+
+
 }

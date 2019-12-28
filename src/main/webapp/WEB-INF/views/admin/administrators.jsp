@@ -23,14 +23,14 @@
 <a href="/admin/create" class="btn btn--large" style="text-align: center;">Utwórz nowego administratora</a>
     <div class="container container--85">
 <table id="tabAdmins">
-    <h1>Zarządzanie użytkownikami</h1>
+    <h1>Zarządzanie administratorami</h1>
     <h2>
-    <for:forEach items="${admins}" var="admin">
         <tr>
             <td> Id:  <br/>
             <td> Email: </td>
             <td> Akcje:</td>
         </tr>
+    <for:forEach items="${admins}" var="admin">
         <tr>
             <td>${admin.id}</td>
             <td><b>${admin.email}</b></td>
