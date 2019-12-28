@@ -10,17 +10,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entities.User;
 import pl.coderslab.charity.repositories.UserRepository;
-
-import javax.validation.Valid;
+import pl.coderslab.charity.services.UpdateUserService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
     private final UserRepository userRepository;
+    private final UpdateUserService updateUserService;
 
-    public AdminController(UserRepository userRepository) {
+    public AdminController(UserRepository userRepository, UpdateUserService updateUserService) {
         this.userRepository = userRepository;
+        this.updateUserService = updateUserService;
     }
 
     @GetMapping("/administrators")
@@ -47,8 +48,7 @@ public class AdminController {
         if (result.hasErrors()) {
             return "/admin/update-admin";
         }
-        user.setActive(true);
-        userRepository.save(user);
+        updateUserService.updateAdmin(user);
         return "redirect:/admin/administrators";
     }
 }
