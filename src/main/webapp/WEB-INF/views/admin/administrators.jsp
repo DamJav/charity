@@ -20,14 +20,16 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<table>
-    <h1 class="title">Zarządzanie użytkownikami</h1>
+
+    <div class="container container--85">
+<table id="tabAdmins">
+    <h1>Zarządzanie użytkownikami</h1>
+    <h2>
     <for:forEach items="${admins}" var="admin">
         <tr>
             <td> Id:  <br/>
             <td> Email: </td>
             <td> Akcje:</td>
-            <td></td>
         </tr>
         <tr>
             <td>${admin.id}</td>
@@ -36,9 +38,14 @@
                     <c:param name="id" value="${admin.id}"/>
                 </c:url>
             <td> <a href="${deleteURL}">Usuń</a></td>
+            <c:url value="/admin/delete" var="deleteURL">
+                <c:param name="id" value="${admin.id}"/>
+            </c:url>
+            <td> <a href="${deleteURL}">Edytuj</a></td>
         </tr>
-        <br>
     </for:forEach>
+    </h2>
 </table>
+</div>
 </body>
 </html>
