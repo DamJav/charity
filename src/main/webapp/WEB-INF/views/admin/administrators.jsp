@@ -41,7 +41,7 @@
             <c:url value="/admin/update" var="updateURL">
                 <c:param name="id" value="${admin.id}"/>
             </c:url>
-            <td> <a href="${deleteURL}">Edytuj</a></td>
+            <td> <a href="${updateURL}">Edytuj</a></td>
         </tr>
     </for:forEach>
     </h2>

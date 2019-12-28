@@ -47,6 +47,7 @@ public class AdminController {
         if (result.hasErrors()) {
             return "/admin/update-admin";
         }
+        user.setActive(true);
         userRepository.save(user);
         return "redirect:/admin/administrators";
     }
