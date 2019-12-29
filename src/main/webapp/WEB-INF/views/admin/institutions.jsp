@@ -31,26 +31,18 @@
                 <td> Akcje:</td>
 
             </tr>
-            <for:forEach items="${users}" var="user">
+            <for:forEach items="${institutions}" var="institution">
                 <tr>
-                    <td>${user.id}</td>
-                    <td>${user.email}</td>
-                    <td> ${user.active} <br/>
-                        <c:url value="/admin/deleteUser" var="deleteURL">
-                            <c:param name="id" value="${user.id}"/>
+                    <td>${institution.id}</td>
+                    <td>${institution.name}</td>
+                    <td> ${institution.description} <br/>
+                        <c:url value="/admin/deleteInst" var="deleteURL">
+                            <c:param name="id" value="${institution.id}"/>
                         </c:url>
                     <td> <a href="${deleteURL}">Usuń</a></td>
-                    <c:url value="/admin/manage/lock" var="lockURL">
-                        <c:param name="id" value="${user.id}"/>
-                    </c:url>
-                    <td> <a href="${lockURL}">Zablokuj</a></td>
 
-                    <c:url value="/admin/manage/unlock" var="unlockURL">
-                        <c:param name="id" value="${user.id}"/>
-                    </c:url>
-                    <td> <a href="${unlockURL}">Odblokuj</a></td>
-                    <c:url value="/admin/manage/update" var="updateURL">
-                        <c:param name="id" value="${user.id}"/>
+                    <c:url value="/admin/updateInst" var="updateURL">
+                        <c:param name="id" value="${institution.id}"/>
                     </c:url>
                     <td> <a href="${updateURL}">Edytuj</a></td>
                 </tr>
