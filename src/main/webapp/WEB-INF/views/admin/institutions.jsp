@@ -20,6 +20,7 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
+<a href="/admin/create" class="btn btn--large" style="text-align: center;">Dodaj instytucję</a>
 <div class="container container--85">
     <table id="tabAdmins">
         <h1>Zarządzanie instytucjami</h1>

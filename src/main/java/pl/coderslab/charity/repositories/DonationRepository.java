@@ -18,14 +18,15 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     Long institutionsSum();
 
 
-    @Transactional
-    @Query(value = "SELECT id FROM donations WHERE institution_id = ? ",nativeQuery = true)
-    List<Long> showIds(Long id);
-
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM donations_categories WHERE donation_id = ? ",nativeQuery = true)
     List<Long> deleteCategoriesByDonationId(Long id);
+
+    @Transactional
+    @Query(value = "SELECT id FROM donations WHERE institution_id = ? ",nativeQuery = true)
+    List<Long> showIds(Long id);
+
 
     @Modifying
     @Transactional

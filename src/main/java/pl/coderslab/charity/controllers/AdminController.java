@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dtos.RegistrationDataDTO;
+import pl.coderslab.charity.entities.Institution;
 import pl.coderslab.charity.entities.User;
+import pl.coderslab.charity.repositories.CategoryRepository;
 import pl.coderslab.charity.repositories.DonationRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.repositories.UserRepository;
@@ -120,11 +122,25 @@ public class AdminController {
 
     @GetMapping("/deleteInst")
     public String deleteInst(Long id) {
-        for (Long one : donationRepository.showIds(id)) {
-            donationRepository.deleteCategoriesByDonationId(one);
+        if(donationRepository.showIds(id) != null) {
+            for (Long one : donationRepository.showIds(id)) {
+                donationRepository.deleteCategoriesByDonationId(one);
+            }
         }
-        donationRepository.deleteDonationsByInstitutionId(id);
-        institutionRepository.deleteById(id);
+            donationRepository.deleteDonationsByInstitutionId(id);
+            institutionRepository.deleteById(id);
+        return "redirect:/admin/institutions";
+    }
+
+    @GetMapping("/updateInst")
+    public String prepareUpdateInst(Long id, Model model) {
+        model.addAttribute("institution", institutionRepository.getOne(id));
+        return "/admin/update-inst";
+    }
+
+    @PostMapping("/updateInst")
+    public String processUpdateInst(@ModelAttribute Institution institution) {
+        institutionRepository.save(institution);
         return "redirect:/admin/institutions";
     }
 }
