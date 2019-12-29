@@ -18,7 +18,7 @@
             <sec:authorize access="hasRole('ADMIN')">
                 <li><a href="/admin/administrators" class="btn btn--small btn--without-border">Administratorzy</a></li>
                 <li><a href="/admin/manage" class="btn btn--small btn--without-border">Użytkownicy</a></li>
-                <li><a href="/login" class="btn btn--small btn--without-border">Instytucje</a></li>
+                <li><a href="/admin/institutions" class="btn btn--small btn--without-border">Instytucje</a></li>
 
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">

@@ -3,18 +3,17 @@ package pl.coderslab.charity.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dtos.RegistrationDataDTO;
 import pl.coderslab.charity.entities.User;
+import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.repositories.UserRepository;
 import pl.coderslab.charity.services.RegistrationService;
 import pl.coderslab.charity.services.UpdateUserService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -24,11 +23,13 @@ public class AdminController {
     private final UserRepository userRepository;
     private final UpdateUserService updateUserService;
     private final RegistrationService registrationService;
+    private final InstitutionRepository institutionRepository;
 
-    public AdminController(UserRepository userRepository, UpdateUserService updateUserService, RegistrationService registrationService) {
+    public AdminController(UserRepository userRepository, UpdateUserService updateUserService, RegistrationService registrationService, InstitutionRepository institutionRepository) {
         this.userRepository = userRepository;
         this.updateUserService = updateUserService;
         this.registrationService = registrationService;
+        this.institutionRepository = institutionRepository;
     }
 
     @GetMapping("/administrators")
@@ -105,5 +106,10 @@ public class AdminController {
     public String processUpdateUserPage(@ModelAttribute User user) {
         updateUserService.updateUser(user);
         return "redirect:/admin/manage";
+    }
+
+    @GetMapping("/institutions")
+    public String showInstitutions(Model model){
+        model.addAttribute("institutions", )
     }
 }
