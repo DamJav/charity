@@ -143,4 +143,16 @@ public class AdminController {
         institutionRepository.save(institution);
         return "redirect:/admin/institutions";
     }
+
+    @GetMapping("/createInst")
+    public String prepareCreateInst(Model model) {
+        model.addAttribute("institution", new Institution());
+        return "/admin/create-inst";
+    }
+
+    @PostMapping("/createInst")
+    public String processCreateInst(@ModelAttribute("institution")Institution institution) {
+        institutionRepository.save(institution);
+        return "redirect:/admin/institutions";
+    }
 }
