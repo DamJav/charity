@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dtos.RegistrationDataDTO;
 import pl.coderslab.charity.entities.User;
+import pl.coderslab.charity.repositories.DonationRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.repositories.UserRepository;
 import pl.coderslab.charity.services.RegistrationService;
@@ -24,12 +25,14 @@ public class AdminController {
     private final UpdateUserService updateUserService;
     private final RegistrationService registrationService;
     private final InstitutionRepository institutionRepository;
+    private final DonationRepository donationRepository;
 
-    public AdminController(UserRepository userRepository, UpdateUserService updateUserService, RegistrationService registrationService, InstitutionRepository institutionRepository) {
+    public AdminController(UserRepository userRepository, UpdateUserService updateUserService, RegistrationService registrationService, InstitutionRepository institutionRepository, DonationRepository donationRepository) {
         this.userRepository = userRepository;
         this.updateUserService = updateUserService;
         this.registrationService = registrationService;
         this.institutionRepository = institutionRepository;
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping("/administrators")
@@ -112,5 +115,16 @@ public class AdminController {
     public String showInstitutions(Model model){
         model.addAttribute("institutions", institutionRepository.findAll());
         return "/admin/institutions";
+    }
+
+
+    @GetMapping("/deleteInst")
+    public String deleteInst(Long id) {
+        for (Long one : donationRepository.showIds(id)) {
+            donationRepository.deleteCategoriesByDonationId(one);
+        }
+        donationRepository.deleteDonationsByInstitutionId(id);
+        institutionRepository.deleteById(id);
+        return "redirect:/admin/institutions";
     }
 }
