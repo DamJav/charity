@@ -110,6 +110,7 @@ public class AdminController {
 
     @GetMapping("/institutions")
     public String showInstitutions(Model model){
-        model.addAttribute("institutions", )
+        model.addAttribute("institutions", institutionRepository.findAll());
+        return "/admin/institutions";
     }
 }
