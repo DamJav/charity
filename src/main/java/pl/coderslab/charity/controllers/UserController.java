@@ -43,4 +43,17 @@ public class UserController {
         req.logout();
         return "/login";
     }
+
+    @GetMapping("/changePassword")
+    public String preparePasswordChange(){
+        return "user/change-password";
+    }
+
+    @PostMapping("/changePassword")
+    public String processPasswordChange(String password, Principal principal, HttpServletRequest request) throws ServletException {
+        String username = principal.getName();
+        userRepository.changePasswordByUsername(username, passwordEncoder.encode(password));
+        request.logout();
+        return "redirect:/login";
+    }
 }
