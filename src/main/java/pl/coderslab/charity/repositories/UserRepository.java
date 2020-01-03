@@ -24,4 +24,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query(value = "UPDATE users SET active = true WHERE id = ?",nativeQuery = true)
     void unlockUserByUserId(Long id);
+
+    @Query(value = "SELECT id FROM users WHERE email = ?",nativeQuery = true)
+    Long findIdByEmail(String email);
 }

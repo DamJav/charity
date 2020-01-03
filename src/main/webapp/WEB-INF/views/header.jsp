@@ -21,7 +21,7 @@
                 <li><a href="/admin/institutions" class="btn btn--small btn--without-border">Instytucje</a></li>
             </sec:authorize>
 
-            <sec:authorize access="hasRole('ADMIN')">
+            <sec:authorize access="hasRole('USER')">
                 <li><a href="/user/manage" class="btn btn--small btn--without-border">Moje konto</a></li>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
