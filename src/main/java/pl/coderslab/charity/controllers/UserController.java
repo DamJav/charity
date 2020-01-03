@@ -1,16 +1,15 @@
 package pl.coderslab.charity.controllers;
 
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.entities.User;
 import pl.coderslab.charity.repositories.UserRepository;
-import pl.coderslab.charity.services.UpdateUserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
 @Controller
@@ -18,9 +17,12 @@ import java.security.Principal;
 public class UserController {
 
     private final UserRepository userRepository;
-    public UserController(UserRepository userRepository) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/manage")

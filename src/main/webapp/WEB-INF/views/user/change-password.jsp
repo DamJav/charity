@@ -13,18 +13,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zmiana hasła</title>
-    <%-- Elementy dotyczące treści strony --%>
-    <%-- Elementy dotyczące wyświetlania --%>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0"/>
-
-    <%-- Linki do szablonów css trafią tutaj --%>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-
-
-    <%-- Linki do skryptów js trafią tutaj --%>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" />
 </head>
 <body class="has-navbar-fixed-top">
 <jsp:include page="../header.jsp"/>
@@ -33,20 +26,11 @@
         Zmiana hasła
     </h1>
     <form method="post">
-        <div class="field">
-            <label class="label" for="password">Nowe hasło</label>
-            <div class="control has-icons-left">
-                <input type="password" id="password" name="password" required class="input"/>
-                <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                <p class="help">Wpisz nowe hasło</p>
-            </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Nowe hasło"/>
         </div>
-        <div class="field">
-            <div class="control" style="text-align: center;">
-                <button class="button is-success is-link" type="submit">Zmień</button>
-            </div>
+        <div class="form-group form-group--buttons">
+            <button class="btn" type="submit">Zmień hasło</button>
         </div>
         <sec:csrfInput/>
     </form>
