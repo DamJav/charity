@@ -25,9 +25,6 @@
         <div class="form-group">
             <form:input path="email" name="email" placeholder="Nowy email"/>
         </div>
-        <div class="form-group">
-            <form:password path="password" name="password" placeholder="Nowa hasło"/>
-        </div>
         <div class="form-group form-group--buttons">
             <button class="btn" type="submit">Edytuj</button>
         </div>
