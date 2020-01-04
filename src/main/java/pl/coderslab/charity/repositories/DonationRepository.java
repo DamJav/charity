@@ -33,6 +33,6 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Query (value = "DELETE FROM donations WHERE institution_id = ?",nativeQuery = true)
     void deleteDonationsByInstitutionId(Long id);
 
-    @Query(value = "SELECT * FROM donations WHERE user_id = ? ORDER BY pick_up_date AND pick_up_time", nativeQuery = true)
+    @Query(value = "SELECT * FROM donations WHERE user_id = ? ORDER BY pick_up_date DESC", nativeQuery = true)
     List<Donation> findAllByUserId(Long id);
 }

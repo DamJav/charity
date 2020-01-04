@@ -39,4 +39,5 @@ public class  Donation {
     private String pickUpComment;
     @ManyToOne
     private User user;
+    private String status;
 }
