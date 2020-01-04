@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.entities.User;
+import pl.coderslab.charity.repositories.DonationRepository;
 import pl.coderslab.charity.repositories.UserRepository;
 
 import javax.servlet.ServletException;
@@ -18,11 +19,13 @@ public class UserController {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DonationRepository donationRepository;
 
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, DonationRepository donationRepository) {
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping("/manage")
@@ -60,7 +63,9 @@ public class UserController {
     }
 
     @GetMapping("/donations")
-    public String userDonationsPage(Model model){
-
+    public String userDonationsPage(Model model, Principal principal){
+        Long userId = userRepository.findUserIdByEmail(principal.getName());
+        model.addAttribute("donations",  donationRepository.findAllByUserId(userId));
+        return "user/user-donations";
     }
 }

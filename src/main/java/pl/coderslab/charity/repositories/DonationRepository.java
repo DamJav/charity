@@ -33,4 +33,5 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Query (value = "DELETE FROM donations WHERE institution_id = ?",nativeQuery = true)
     void deleteDonationsByInstitutionId(Long id);
 
+    List<Donation> findAllByUserId(Long id);
 }
