@@ -58,4 +58,9 @@ public class UserController {
         request.logout();
         return "redirect:/login";
     }
+
+    @GetMapping("/donations")
+    public String userDonationsPage(Model model){
+
+    }
 }

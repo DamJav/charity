@@ -22,6 +22,9 @@
             </sec:authorize>
 
             <sec:authorize access="hasRole('USER')">
+                <li><a href="/user/donations" class="btn btn--small btn--without-border">Moje dary</a></li>
+            </sec:authorize>
+            <sec:authorize access="hasRole('USER')">
                 <li><a href="/user/manage" class="btn btn--small btn--without-border">Moje konto</a></li>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
