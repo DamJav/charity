@@ -20,7 +20,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM donations_categories WHERE donation_id = ? ",nativeQuery = true)
+   @Query(value = "DELETE FROM donations_categories WHERE donation_id = ? ",nativeQuery = true)
     List<Long> deleteCategoriesByDonationId(Long id);
 
     @Transactional
