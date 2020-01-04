@@ -15,7 +15,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = "password") @EqualsAndHashCode(of = "id")
+//@ToString(exclude = "password") @EqualsAndHashCode(of = "id")
 
 @Entity
 @Table(name = "users")

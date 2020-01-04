@@ -27,21 +27,21 @@
         <h2>
             <tr>
                 <td> Id:  <br/>
-                <td> Email: </td>
-                <td> Akcje:</td>
+                <td> Ilośc worków:  <br/>
+                <td> Miasto: </td>
+                <td> Komentarz:</td>
+                <td> Data odbioru:</td>
             </tr>
-            <for:forEach items="${admins}" var="admin" varStatus="i">
+            <for:forEach items="${donations}" var="donation" varStatus="i">
                 <tr>
-                    <td>${i}</td>
-                    <td><b>${admin.email}</b></td>
-                    <c:url value="/admin/delete" var="deleteURL">
-                        <c:param name="id" value="${admin.id}"/>
-                    </c:url>
-                    <td> <a href="${deleteURL}">Usuń</a></td>
-                    <c:url value="/admin/update" var="updateURL">
-                        <c:param name="id" value="${admin.id}"/>
-                    </c:url>
-                    <td> <a href="${updateURL}">Edytuj</a></td>
+                    <td>${i.count}</td>
+                    <td>${donation.quantity}</td>
+                    <td>${donation.city}</td>
+                    <td>${donation.pickUpComment}</td>
+                    <td>${donation.pickUpDate}, ${donation.pickUpTime}</td>
+
+
+
                 </tr>
             </for:forEach>
         </h2>

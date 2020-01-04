@@ -64,8 +64,8 @@ public class UserController {
 
     @GetMapping("/donations")
     public String userDonationsPage(Model model, Principal principal){
-        Long userId = userRepository.findUserIdByEmail(principal.getName());
-        model.addAttribute("donations",  donationRepository.findAllByUserId(userId));
+        User user = userRepository.findUserByEmail(principal.getName());
+        model.addAttribute("donations",  donationRepository.findAllByUserId(user.getId()));
         return "user/user-donations";
     }
 }
