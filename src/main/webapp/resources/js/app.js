@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function() {
       outCategories.innerText = bags.value +" worki ";
       for(var i = 0; i < categories.length; i++) {
         if(categories[i].checked){
-          console.log(categories[i].value)
           outCategories.innerText +=  " " +categories[i].value+" , ";
         }
       }
@@ -179,10 +178,9 @@ document.addEventListener("DOMContentLoaded", function() {
       var outOrganization = document.querySelector("#outOrganization")
       outOrganization.innerText = "Dla fundacji ";
       for(var i = 0; i < organizations.length; i++) {
-
-          console.log(organizations[i]);
+        if(organizations[i].checked) {
           outOrganization.innerText += ' "' + organizations[i].value + '"';
-
+        }
       }
 
 
