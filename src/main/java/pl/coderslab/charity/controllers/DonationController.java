@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dtos.DonationDataDTO;
+import pl.coderslab.charity.entities.Donation;
 import pl.coderslab.charity.repositories.CategoryRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.services.DonationService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/donation")
@@ -37,8 +39,9 @@ public class DonationController {
     }
 
     @PostMapping("/form")
-    public String processDonation(@ModelAttribute("donationData") DonationDataDTO donationData){
-        donationService.createDonation(donationData);
+    public String processDonation(Donation donation, HttpServletRequest req){
+        String street = req.getParameter("street");
+        List<String> dd = req.getParameter("categories");
         return "form-confirmation";
     }
 }
