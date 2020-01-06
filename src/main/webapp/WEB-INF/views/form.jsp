@@ -50,7 +50,7 @@
                 <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" id="categories" value="${category}"/>
+                            <input type="checkbox" name="categories" class="categories" value="${category.name}"/>
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
@@ -87,7 +87,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="ogranization" id="organization" value="${institution}">
+                            <input type="radio" name="ogranization" class="organization" value="${institution}">
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${institution.name}</div>
@@ -168,10 +168,10 @@
                     <div class="form-section">
                         <h4>Oddajesz:</h4>
                         <ul>
-                            <li>
+                            <li >
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                      id="outCategories"></span
                                 >
                             </li>
 

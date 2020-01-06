@@ -164,10 +164,18 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-      var ulica = document.querySelector("#ulica");
-      var ulicaOut = document.querySelector("#ulicaOut");
-      ulicaOut.innerText = ulica.value;
-      console.log(ulica.value);
+
+      var categories = document.querySelectorAll(".categories");
+      var outCategories = document.querySelector("#outCategories")
+      var bags = document.querySelector("#bags");
+      for(var i = 0; i < categories.length; i++) {
+        if(categories[i].checked){
+          outCategories.innerText = bags +" worki "+ categories[i].value+" , ";
+        }
+
+      }
+
+
 
     }
 
