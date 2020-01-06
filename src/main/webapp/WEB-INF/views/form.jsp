@@ -68,7 +68,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" name="bags" step="1" min="1"/>
+                        <input type="number" step = "1" min="1" name="bags" id="bags"/>
                     </label>
                 </div>
 
@@ -87,7 +87,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" name="organization" value="${institution}"/>
+                            <input type="radio" name="ogranization" id="organization" value="${institution}">
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${institution.name}</div>
@@ -115,23 +115,23 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Ulica
-                                <input type="text" id="ulica" />
+                                <input type="text" name="street" id="street" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city"/> </label>
+                            <label> Miasto <input name="city" id="city"></label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode"/>
+                                Kod pocztowy <input name="zipCode" id="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" />
+                                Numer telefonu <input type="phone" name="phone" id="phone" />
                             </label>
                         </div>
                     </div>
@@ -139,17 +139,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" id="data" path="pickUpDate"/> </label>
+                            <label> Data <input type="date" id="date" name="date"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime" /> </label>
+                            <label> Godzina <input type="time" name="time" id="time"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment"></form:textarea>
+                                <textarea id="comment" name="comment"></textarea>
                             </label>
                         </div>
                     </div>
@@ -188,10 +188,10 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li id="ulicaOut"></li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="outStreet"></li>
+                                <li id="outCity"></li>
+                                <li id="outZipCode"></li>
+                                <li id="outPhone"></li>
                             </ul>
                         </div>
 
@@ -211,7 +211,7 @@
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
-        </form:form>
+        </form>
     </div>
 </section>
 <jsp:include page="footer.jsp"/>
