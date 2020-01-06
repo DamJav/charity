@@ -198,9 +198,9 @@
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="outDate"></li>
+                                <li id="outTime"></li>
+                                <li id="outComment"></li>
                             </ul>
                         </div>
                     </div>
