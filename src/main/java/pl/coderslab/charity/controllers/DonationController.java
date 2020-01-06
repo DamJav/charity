@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dtos.DonationDataDTO;
+import pl.coderslab.charity.entities.Category;
 import pl.coderslab.charity.entities.Donation;
 import pl.coderslab.charity.repositories.CategoryRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
 import pl.coderslab.charity.services.DonationService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -39,9 +44,28 @@ public class DonationController {
     }
 
     @PostMapping("/form")
-    public String processDonation(Donation donation, HttpServletRequest req){
+    public String processDonation(HttpServletRequest req, Model model){
+        Donation donation = new Donation();
+        List<Category> categories = new ArrayList<>();
+        List<String> categoriesNames = Collections.singletonList(req.getParameter("categories"));
+        for(String category : categoriesNames){
+            categories.add(categoryRepository.findByName(category));
+        }
+        donation.setCategories(categories);
+        donation.setCity(req.getParameter("city"));
+        donation.setPickUpComment(req.getParameter("comment"));
+        donation.setPickUpDate(LocalDate.parse(req.getParameter("date")));
+        donation.setPickUpTime(LocalTime.parse(req.getParameter("time")));
+
+
+
+
+
         String street = req.getParameter("street");
-        List<String> dd = req.getParameter("categories");
+
+
+
+
         return "form-confirmation";
     }
 }

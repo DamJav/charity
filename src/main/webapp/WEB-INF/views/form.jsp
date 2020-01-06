@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Damian
@@ -211,6 +212,7 @@
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
+            <sec:csrfInput/>
         </form>
     </div>
 </section>
