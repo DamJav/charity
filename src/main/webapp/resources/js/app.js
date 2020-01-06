@@ -164,6 +164,10 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      var ulica = document.querySelector("#ulica");
+      var ulicaOut = document.querySelector("#ulicaOut");
+      ulicaOut.innerText = ulica.value;
+      console.log(ulica.value);
 
     }
 
