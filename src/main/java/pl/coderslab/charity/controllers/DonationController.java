@@ -66,6 +66,8 @@ public class DonationController {
         donation.setStreet(req.getParameter("street"));
         donation.setZipCode(req.getParameter("zipCode"));
         donation.setStatus("nieodebrany");
+        donation.setInstitution(institutionRepository.findByName(req.getParameter("organization")));
+        model.addAttribute("org", req.getParameter("organization"));
         donationRepository.save(donation);
 
 
