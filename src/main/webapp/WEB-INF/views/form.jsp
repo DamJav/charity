@@ -87,7 +87,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="ogranization" class="organization" value="${institution}">
+                            <input type="radio" name="ogranization" class="organization" value="${institution.name}">
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${institution.name}</div>
@@ -178,7 +178,7 @@
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                id="outOrganization"> </span
                                 >
                             </li>
                         </ul>

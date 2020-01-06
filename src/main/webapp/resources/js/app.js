@@ -168,10 +168,20 @@ document.addEventListener("DOMContentLoaded", function() {
       var categories = document.querySelectorAll(".categories");
       var outCategories = document.querySelector("#outCategories")
       var bags = document.querySelector("#bags");
+      outCategories.innerText = bags.value +" worki ";
       for(var i = 0; i < categories.length; i++) {
         if(categories[i].checked){
-          outCategories.innerText = bags +" worki "+ categories[i].value+" , ";
+          console.log(categories[i].value)
+          outCategories.innerText +=  " " +categories[i].value+" , ";
         }
+      }
+      var organizations = document.querySelectorAll(".organization")
+      var outOrganization = document.querySelector("#outOrganization")
+      outOrganization.innerText = "Dla fundacji ";
+      for(var i = 0; i < organizations.length; i++) {
+
+          console.log(organizations[i]);
+          outOrganization.innerText += ' "' + organizations[i].value + '"';
 
       }
 
