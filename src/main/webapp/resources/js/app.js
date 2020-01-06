@@ -183,7 +183,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
 
+      var street = document.querySelector("#street");
+      var outStreet = document.querySelector("#outStreet");
+      var city = document.querySelector("#city");
+      var outCity = document.querySelector("#outCity");
+      var zipCode = document.querySelector("#zipCode");
+      var outZipCode = document.querySelector("#outZipCode");
+      var phone = document.querySelector("#phone");
+      var outPhone = document.querySelector("#outPhone");
+      outStreet.innerText = street.value;
+      outCity.innerText = city.value;
+      outZipCode.innerText = zipCode.value;
+      outPhone.innerText = phone.value;
 
+      var date = document.querySelector("#date");
+      var outDate = document.querySelector("#outDate");
+      var time = document.querySelector("#time");
+      var outTime = document.querySelector("#outTime");
+      var comment = document.querySelector("#comment");
+      var outComment = document.querySelector("#outComment");
+      outDate.innerText = date.value;
+      outTime.innerText = time.value;
+      outComment.innerText = comment.value;
 
     }
 
