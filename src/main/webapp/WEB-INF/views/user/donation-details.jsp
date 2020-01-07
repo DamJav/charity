@@ -24,18 +24,16 @@
         <h1>Szczegóły daru</h1>
         <h2>
             <tr>
-                <td> Organizacja odbierająca <br/>
-
-            </tr>
-
+                <td> <b>Organizacja odbierająca </b><br/>
                 <td>${donation.institution.name}</td>
-
-
-
             </tr>
-
+            <tr>
+                <td> <b>Data przekazania</b> <br/>
+                <td>${donation.pickUpDate}, ${donation.pickUpTime}</td>
+            </tr>
         </h2>
     </table>
+    <a href="/user/donations" class="btn btn--large" style="text-align: center;">Powrót</a>
 </div>
 </body>
 </html>

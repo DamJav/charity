@@ -29,7 +29,6 @@
                 <td> Ilośc worków  <br/>
                 <td> Miasto </td>
                 <td> Komentarz</td>
-                <td> Data odbioru</td>
                 <td> Status</td>
                 <td> Akcje</td>
             </tr>
@@ -38,7 +37,6 @@
                     <td>${donation.quantity}</td>
                     <td>${donation.city}</td>
                     <td>${donation.pickUpComment}</td>
-                    <td>${donation.pickUpDate}, ${donation.pickUpTime}</td>
                     <td>${donation.status}</td>
                     <td><b> <a href="${detailsURL}">Szczegóły</a></b></td>
                     <c:url value="/donation/details" var="detailsURL">
