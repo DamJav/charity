@@ -20,8 +20,8 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<div class="container container--85">
-    <table id="tabAdmins">
+<div class="container container--85" style="text-align: center;">
+    <table id="tabAdmins" style="text-align: center;">
         <h1>Moje dary</h1>
         <h2>
             <tr>
