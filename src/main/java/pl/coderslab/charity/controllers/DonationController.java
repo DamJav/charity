@@ -77,4 +77,15 @@ public class DonationController {
         model.addAttribute("donation", donationRepository.findDonationById(id));
         return "user/donation-details";
     }
+
+    @GetMapping("/changestatus")
+    public String changeDonationStatus(Long id){
+        Donation donation = donationRepository.findDonationById(id);
+          if(donation.getStatus() == "odebrany"){
+              donationRepository.changeStatusToUnGet(id);
+          }else{
+              donationRepository.changeStatusToGet(id);
+          }
+        return "user/donation-details";
+    }
 }

@@ -33,11 +33,12 @@ public class  Donation {
     private String street;
     private String city;
     private String zipCode;
+    private String status;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private String pickUpComment;
     @ManyToOne
     private User user;
-    private String status;
+
 }

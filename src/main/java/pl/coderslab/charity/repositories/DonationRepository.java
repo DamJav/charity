@@ -38,4 +38,15 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     List<Donation> findAllByUserId(Long id);
 
     Donation findDonationById(Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE donations SET status ='odebrany' WHERE id = ?1",nativeQuery = true)
+    void changeStatusToGet(Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE donations SET status ='nieodebrany' WHERE id = ?1",nativeQuery = true)
+    void changeStatusToUnGet(Long id);
+
 }
