@@ -69,8 +69,12 @@ public class DonationController {
         donation.setInstitution(institutionRepository.findByName(req.getParameter("organization")));
         model.addAttribute("org", req.getParameter("organization"));
         donationRepository.save(donation);
-
-
         return "form-confirmation";
+    }
+
+    @GetMapping("/details")
+    public String detailsPage(Long id, Model model){
+        model.addAttribute("donation", donationRepository.findDonationById(id));
+        return "user/donation-details";
     }
 }

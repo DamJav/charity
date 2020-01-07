@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.charity.entities.Donation;
+import pl.coderslab.charity.entities.Institution;
 
 import java.util.List;
 
@@ -35,4 +36,6 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     @Query(value = "SELECT * FROM donations WHERE user_id = ? ORDER BY pick_up_date DESC", nativeQuery = true)
     List<Donation> findAllByUserId(Long id);
+
+    Donation findDonationById(Long id);
 }

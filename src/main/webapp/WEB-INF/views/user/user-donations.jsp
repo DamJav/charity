@@ -34,7 +34,6 @@
                 <td> Akcje</td>
             </tr>
             <for:forEach items="${donations}" var="donation" varStatus="i">
-                <b>
                     <td>${i.count}</td>
                     <td>${donation.quantity}</td>
                     <td>${donation.city}</td>
