@@ -24,13 +24,22 @@
         <h1>Szczegóły daru</h1>
         <h2>
             <tr>
-                <td> <b>Organizacja odbierająca </b><br/>
+                <td> <b>Organizacja odbierająca:  </b><br/>
                 <td>${donation.institution.name}</td>
             </tr>
             <tr>
-                <td> <b>Data przekazania</b> <br/>
+                <td> <b>Data przekazania: </b> <br/>
                 <td>${donation.pickUpDate}, ${donation.pickUpTime}</td>
             </tr>
+            <tr>
+                <td> <b>Status: </b> <br/>
+                <td>${donation.status}</td>
+                <td><b> <a href="${changeURL}">Zmień status</a></b></td>
+                <c:url value="/donation/changeStatus" var="changeURL">
+                    <c:param name="id" value="${donation.id}"/>
+                </c:url>
+            </tr>
+
         </h2>
     </table>
     <a href="/user/donations" class="btn btn--large" style="text-align: center;">Powrót</a>

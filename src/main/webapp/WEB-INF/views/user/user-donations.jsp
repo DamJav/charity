@@ -29,7 +29,6 @@
                 <td> Ilośc worków  <br/>
                 <td> Miasto </td>
                 <td> Komentarz</td>
-                <td> Status</td>
                 <td> Akcje</td>
             </tr>
             <for:forEach items="${donations}" var="donation" varStatus="i">
@@ -37,7 +36,6 @@
                     <td>${donation.quantity}</td>
                     <td>${donation.city}</td>
                     <td>${donation.pickUpComment}</td>
-                    <td>${donation.status}</td>
                     <td><b> <a href="${detailsURL}">Szczegóły</a></b></td>
                     <c:url value="/donation/details" var="detailsURL">
                         <c:param name="id" value="${donation.id}"/>
