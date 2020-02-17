@@ -1,4 +1,4 @@
-Jest to projekt z CodersLab, w którym zajmuję się backendem.
+Jest to projekt w którym zajmuję się backendem.
 Aplikacja służy do oddawania darów potrzebującym.
 
 Funkcjonalności to m.in :
